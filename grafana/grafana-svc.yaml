@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: grafana-pod
+  ports:
+  - protocol: TCP
+    port: 51951
+    targetPort: 3000

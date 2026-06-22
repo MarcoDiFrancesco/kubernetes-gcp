@@ -1,0 +1,12 @@
+# LimitRange: setting per-container defualts
+
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: cpu-requests
+spec:
+  limits:
+  - defaultRequest: # Default requests
+      cpu: 500m
+    # No default limit is specified
+    type: Container
