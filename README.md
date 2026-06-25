@@ -84,6 +84,10 @@ Update your existing Grafana Deployment. Add the following environment variables
 
   **✅ DONE**
 
+### NEW: Setup cloudflare tunnel
+Like: cluster.marcodifrancesco.com or kubernetes.marcodifrancesco.com? point it to the grafana-svc. Then delete the existing LoadBalancer.
+
+
 ### 5. Stateful Workloads (PostgreSQL)
 Replace your existing PostgreSQL `Deployment` with a `StatefulSet` to correctly manage its stateful nature.
 - **Name:** `postgres-sts`
