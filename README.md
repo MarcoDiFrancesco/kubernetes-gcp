@@ -93,24 +93,35 @@ Replace your existing PostgreSQL `Deployment` with a `StatefulSet` to correctly 
 - **Mount Path:** `/var/lib/postgresql/data`
 - **Environment:** Inject all credentials using `envFrom` pointing to your secret.
 
+  **🔲 TODO**
+
 *(Hint: After deploying this, delete the old `postgres` Deployment and the standalone `postgres-pvc` you created in Step 2, as the StatefulSet will provision its own!)*
+
 
 ### 6. Resource Management
 Add resource boundaries to your `grafana` Deployment to ensure cluster stability. Add the following to the `grafana` container:
 - **Requests:** CPU `100m`, Memory `256Mi`
 - **Limits:** CPU `200m`, Memory `512Mi`
 
+  **🔲 TODO**
+
 ### 7. Health Checks
 Add probes to the `grafana` container so Kubernetes knows when the application is actually healthy and ready to serve traffic.
 - **Liveness Probe:** HTTP GET request to `/api/health` on port `3000`. Initial delay `15` seconds.
 - **Readiness Probe:** HTTP GET request to `/api/health` on port `3000`. Initial delay `5` seconds.
+
+  **🔲 TODO**
 
 ### 8. Secret Management Refactor
 Refactor the `grafana` Deployment to bulk-inject secrets instead of mapping them individually.
 - **Update the Deployment:** remove the individual `valueFrom.secretKeyRef` entries for the DB credentials and admin credentials.
 - **Inject them dynamically:** using `envFrom` targeting your existing `secret` (which already contains the matching `GF_...` keys).
 
+  **🔲 TODO**
+
 ### 9. High Availability (Scaling)
 Production setups require redundancy. Update the `grafana` Deployment to ensure high availability.
 - **Replicas:** `2`
 - *Why:* If a Kubernetes worker node crashes, having at least two replicas ensures the Grafana UI remains accessible. For PostgreSQL, we leave it at `replicas: 1` in this basic setup because raw Postgres requires complex third-party tools (like Patroni) to safely manage multi-node replication (Leader/Follower).
+
+  **🔲 TODO**
