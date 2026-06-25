@@ -7,6 +7,7 @@ This repository is for CKAD (Certified Kubernetes Application Developer) learnin
 - **How to do X:** Do NOT give the direct command or YAML. Guide with hints.
 - **Why:** Explain underlying Kubernetes concepts or architectural reasons.
 - **Is this correct:** Validate correctness and explain why.
+- **Tasks:** Mimic CKAD exam style. Provide non-memorizable specs (images, env vars, ports, mount paths) as a structured list.
 
 ## Repo Conventions
 - **Structure:** One directory = One namespace (e.g., `./grafana/` is for the `grafana` namespace).

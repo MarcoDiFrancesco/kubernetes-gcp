@@ -5,7 +5,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: grafana-pod
+    app: grafana
   ports:
   - protocol: TCP
     port: 51951
